@@ -9,7 +9,7 @@ if [ $pid ]; then
     echo "$PROJECTNAME is  running  and pid=$pid"
 
     kill -9 $pid
-
+    sleep 3
     if [[ $? -eq 0 ]];then
 
       echo "sucess to stop $PROJECTNAME "
