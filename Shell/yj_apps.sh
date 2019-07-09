@@ -11,17 +11,17 @@ function print_tip1
 	echo "3) ${apps[2]}"
 	echo "all) 全部应用"
 	echo "q) 退出"
-	echo "************************************"
+	echo "**********************************************************************"
 }
 
 function print_tip2
 {
-	echo "************************"
+	echo "******************************************************************"
 	echo "1) 应用状态"
 	echo "2) 停止应用"
 	echo "3) 重启应用"
 	echo "4) 返回"
-	echo "************************"
+	echo "******************************************************************"
 }
 
 function check_app
@@ -29,15 +29,17 @@ function check_app
 	for aname in $app_name;do
 
 		pid=`ps -ef |grep $aname |grep -v "grep" |awk '{print $2}'`
-
 		if [ $pid ]; then
-			echo "……………………………………………………"
-   			echo "$aname  is  running  and pid=$pid"
-			echo "……………………………………………………"
+			status=`netstat -lntup|grep -v "grep"|grep $pid`
+			echo "…………………………………………………………………………………………………………………………"
+			echo "$aname  is  running  and pid=$pid"
+			echo "使用的端口如下所示："
+			echo "$status"
+			echo "…………………………………………………………………………………………………………………………"
 		else
-			echo "……………………………………………………"
+			echo "…………………………………………………………………………………………………………………………"
 			echo "$aname is not running"
-			echo "……………………………………………………"
+			echo "…………………………………………………………………………………………………………………………"
 		fi
 	done
 }
@@ -85,7 +87,7 @@ function print_title
 {
 	while true
 	do
-		echo "******************请选择******************"
+		echo "******************************请选择**********************************"
 		print_tip1
 		read -p "输入: " app_choice
 		case $app_choice in
