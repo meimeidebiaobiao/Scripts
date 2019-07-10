@@ -33,6 +33,8 @@ sed -i "s/appendonly no/appendonly yes/g" /usr/local/redis/etc/redis.conf
 sed -i "s/dir .\//dir \/usr\/local\/redis\/data/g" /usr/local/redis/etc/redis.conf
 #修改log存放路径
 sed -i "s/logfile \"\"/logfile \/usr\/local\/redis\/data\/redis.log/g" /usr/local/redis/etc/redis.conf
+
+make
 make install PREFIX=/usr/local/redis
 
 #把redis服务添加至systemctl管理
