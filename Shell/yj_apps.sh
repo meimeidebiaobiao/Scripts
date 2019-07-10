@@ -31,15 +31,19 @@ function check_app
 		pid=`ps -ef |grep $aname |grep -v "grep" |awk '{print $2}'`
 		if [ $pid ]; then
 			status=`netstat -lntup|grep -v "grep"|grep $pid`
+			echo ""
 			echo "…………………………………………………………………………………………………………………………"
 			echo "$aname  is  running  and pid=$pid"
 			echo "使用的端口如下所示："
 			echo "$status"
 			echo "…………………………………………………………………………………………………………………………"
+			echo ""
 		else
+			echo ""
 			echo "…………………………………………………………………………………………………………………………"
 			echo "$aname is not running"
 			echo "…………………………………………………………………………………………………………………………"
+			echo ""
 		fi
 	done
 }
@@ -57,31 +61,6 @@ function start_app
 		sh /opt/$aname/apache-tomcat-8.5.42/bin/startup.sh
 	done
 }	
-
-
-#function print_title
-#{
-#	echo "**************请选择***************"
-#	print_tip1
-#	read -p "输入: " app_choice
-#	if [ $app_choice -eq 1 ];then
-#		echo "选择的应用是：$app1"
-#		app_name=$app1
-#		print_title2
-#	elif [ $app_choice -eq 2 ];then
-#		echo "选择的应用是：$app2"
-#		app_name=$app2
-#		print_title2
-#	elif [ $app_choice -eq 3];then
-#		echo "选择的应用是：$app3"
-#		app_name=$app2
-#		print_title2
-#	elif [ $app_choice -eq q ];then
-#	exit
-#	else 
-#		echo "请输入1|2|3|4|q"
-#	fi
-#}
 
 function print_title
 {
