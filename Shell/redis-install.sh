@@ -39,6 +39,7 @@ make install PREFIX=/usr/local/redis
 
 #把redis服务添加至systemctl管理
 echo "${redis_service}">/lib/systemd/system/redis.service
+echo "export PATH="\$PATH:/usr/local/redis/bin"">>/etc/profile
 echo "Redis install ok!(path:/usr/local/redis)"
 echo "Use systemctl start redis"
 
