@@ -1,13 +1,13 @@
 #!/bin/bash
 
-#监控nginx进程
+#监控Nginx进程
 #建议使用nohup ./nginx_monitor.sh >/dev/null 2>&1
 DATE=`date +%Y%m%d-%H:%M:%S`
 
 while true
 do
 	status=`ps -ef|grep nginx|grep -v grep|grep -v $$`
-
+	
 	if [ $? -eq 0 ];then
 		echo "Nginx is runing"
 	else
