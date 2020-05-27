@@ -3,4 +3,4 @@
 
 DATE=`date +"%Y%m%d"`
 
-mysql -u root -pXXX --all-databases > /home/bak/mysql_$DATE.bak
+mysqldump -uroot -pXXX --all-databases -hhost > /home/bak/mysql_$DATE.bak
